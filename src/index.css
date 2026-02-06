@@ -546,6 +546,7 @@ button {
    Responsive Styles
    ========================================== */
 
+/* Laptop/Small Desktop (1024px) */
 @media (max-width: 1024px) {
   .sidebar-wrapper {
     width: var(--sidebar-collapsed-width);
@@ -578,14 +579,27 @@ button {
     justify-content: center;
     padding: var(--spacing-md);
   }
+
+  /* Dashboard cards - 2 columns on tablet */
+  .dashboard-cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  .login-card {
+    max-width: 400px;
+  }
 }
 
+/* Tablet/iPad (768px) */
 @media (max-width: 768px) {
   .sidebar-wrapper {
     position: fixed;
     width: var(--sidebar-width);
     transform: translateX(-100%);
     transition: transform var(--transition-normal);
+    z-index: 1000;
   }
 
   .sidebar-wrapper:not(.closed) {
@@ -606,17 +620,125 @@ button {
 
   .product-table-container {
     overflow-x: auto;
+    margin: var(--spacing-md);
+    border-radius: 12px;
   }
 
   .product-table {
-    min-width: 800px;
+    min-width: 700px;
   }
 
   .header {
     padding: var(--spacing-md);
   }
+
+  /* Dashboard cards - 1 column on mobile */
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+
+  /* Login page */
+  .login-container {
+    padding: var(--spacing-md);
+  }
+
+  .login-card {
+    padding: var(--spacing-lg);
+    max-width: 100%;
+  }
+
+  .login-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .login-logo::after {
+    font-size: 2rem;
+  }
+
+  .login-header h1 {
+    font-size: 1rem;
+  }
+
+  .store-name {
+    font-size: 1.5rem;
+  }
+
+  .login-form input {
+    padding: var(--spacing-md);
+  }
+
+  /* Forms */
+  .form-container {
+    width: 95%;
+    padding: var(--spacing-lg);
+    max-width: 450px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-submit-btn,
+  .form-cancel-btn {
+    width: 100%;
+  }
+
+  /* Tables */
+  .order-table-container {
+    overflow-x: auto;
+    margin: var(--spacing-md);
+    border-radius: 12px;
+  }
+
+  .order-table {
+    min-width: 650px;
+  }
+
+  .customer-table-container {
+    overflow-x: auto;
+    margin: var(--spacing-md);
+    border-radius: 12px;
+  }
+
+  .customer-table {
+    min-width: 600px;
+  }
+
+  /* Status buttons */
+  .status-buttons {
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .status-btn {
+    width: 100%;
+    min-width: unset;
+  }
+
+  /* Gaming API page */
+  .gaming-api-page {
+    padding: var(--spacing-md);
+  }
+
+  .gaming-list {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-md);
+  }
+
+  /* Invoice modal */
+  .invoice-content {
+    width: 95%;
+    max-width: 500px;
+    padding: var(--spacing-lg);
+  }
+
+  .invoice-info {
+    grid-template-columns: 1fr;
+  }
 }
 
+/* Mobile/Small Phones (480px) */
 @media (max-width: 480px) {
   :root {
     --sidebar-width: 100%;
@@ -626,6 +748,11 @@ button {
     font-size: 1.25rem;
   }
 
+  .product-page-header {
+    margin: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+  }
+
   .product-page-header h2 {
     font-size: 1.25rem;
   }
@@ -633,6 +760,140 @@ button {
   .btn-add {
     width: 100%;
     justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  /* Card adjustments */
+  .card {
+    padding: var(--spacing-md);
+  }
+
+  .card p {
+    font-size: 1.5rem;
+  }
+
+  .card .icon {
+    font-size: 1.25rem;
+  }
+
+  /* Page headers */
+  .order-page-header h2,
+  .customer-page-header h2,
+  .product-page-header h2,
+  .main-content h2 {
+    font-size: 1.25rem;
+  }
+
+  .order-page {
+    padding: var(--spacing-md);
+  }
+
+  .customer-page-container {
+    padding: var(--spacing-md);
+  }
+
+  .invoice-btn {
+    padding: 0.5rem 1rem;
+    font-size: 12px;
+  }
+
+  .status-bar {
+    flex-wrap: wrap;
+  }
+
+  .status-bar span:first-child {
+    min-width: 60px;
+    font-size: 0.75rem;
+  }
+
+  /* Login header adjustments */
+  .login-header h1 {
+    font-size: 0.875rem;
+  }
+
+  .store-name {
+    font-size: 1.25rem;
+  }
+
+  /* Gaming API */
+  .gaming-list {
+    grid-template-columns: 1fr;
+  }
+
+  .search-input {
+    max-width: 100%;
+  }
+
+  /* Form adjustments */
+  .form-container {
+    padding: var(--spacing-md);
+    width: 95%;
+  }
+
+  .form-container h2 {
+    font-size: 1.25rem;
+  }
+
+  .product-status-bar {
+    padding: var(--spacing-md);
+  }
+
+  .product-status-bar h3 {
+    font-size: 1rem;
+  }
+}
+
+/* Extra Small Phones (375px and below) */
+@media (max-width: 375px) {
+  .login-logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .login-logo::after {
+    font-size: 1.75rem;
+  }
+
+  .store-name {
+    font-size: 1.1rem;
+  }
+
+  .login-header h1 {
+    font-size: 0.75rem;
+  }
+
+  .login-card {
+    padding: var(--spacing-md);
+  }
+
+  .login-form label {
+    font-size: 0.8rem;
+  }
+
+  .login-form input {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  .login-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.9rem;
+  }
+
+  .card {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .card h3 {
+    font-size: 0.9rem;
+  }
+
+  .card p {
+    font-size: 1.25rem;
+  }
+
+  .btn-add {
+    font-size: 0.875rem;
   }
 }
 
@@ -1599,22 +1860,6 @@ button {
   }
 }
 
-@media (max-width: 480px) {
-  .order-page-header h2 {
-    font-size: 1.5rem;
-  }
-
-  .invoice-btn {
-    padding: 0.5rem 1rem;
-    font-size: 12px;
-  }
-
-  .status-bar span:first-child {
-    min-width: 60px;
-    font-size: 0.75rem;
-  }
-}
-
 /* ==========================================
    Gaming API Page Styles - Gaming Theme
    ========================================== */
@@ -2124,35 +2369,6 @@ button {
   z-index: -1;
   opacity: 0.5;
   filter: blur(10px);
-}
-
-/* Responsive Design */
-@media (max-width: 480px) {
-  .login-container {
-    padding: var(--spacing-md);
-  }
-
-  .login-card {
-    padding: var(--spacing-xl);
-    max-width: 100%;
-  }
-
-  .login-logo {
-    width: 70px;
-    height: 70px;
-  }
-
-  .login-logo::after {
-    font-size: 2rem;
-  }
-
-  .login-header h1 {
-    font-size: 1.5rem;
-  }
-
-  .login-form input {
-    padding: var(--spacing-md);
-  }
 }
 
 /* Gaming accent decorations */
