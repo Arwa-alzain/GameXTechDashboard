@@ -8,12 +8,16 @@ function GamingApi() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("https://www.freetogame.com/api/games")
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to fetch games");
+    fetch("/api/games")
+      .then(async (response) => {
+        const text = await response.text(); // نقرأ الرد كـ text أولاً
+        try {
+          const data = JSON.parse(text); // نحاول تحويله لـ JSON
+          return data;
+        } catch (e) {
+          console.error("Invalid JSON received:", text);
+          throw new Error("Invalid JSON received from API");
         }
-        return response.json();
       })
       .then((data) => {
         setAllGames(data);
@@ -22,6 +26,10 @@ function GamingApi() {
       .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   }, []);
+  
+  
+  
+
   
 
   useEffect(() => {
