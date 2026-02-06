@@ -8,14 +8,21 @@ function GamingApi() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/api/games")
-      .then((response) => response.json())
+    fetch("/api/games")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Failed to fetch games");
+        }
+        return response.json();
+      })
       .then((data) => {
         setAllGames(data);
         setFilteredGames(data);
-        setLoading(false);
-      });
+      })
+      .catch((err) => console.error(err))
+      .finally(() => setLoading(false));
   }, []);
+  
 
   useEffect(() => {
     if (search.length < 1) {
