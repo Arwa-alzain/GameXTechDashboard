@@ -1,16 +1,131 @@
-# React + Vite
+# 🎮 GameX Tech Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**GameX Tech** is a modern web-based admin dashboard designed for managing an online electronics and accessories store, with additional integration of gaming-related services through a public API.  
+The project focuses on clean UI, efficient store management, and practical application of core React concepts.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Project Overview
 
-## React Compiler
+GameX Tech provides a centralized dashboard that allows administrators to manage products, orders, customers, and store statistics in one place.  
+It also includes a dedicated page for testing and integrating a public gaming API, enabling game search functionality and external redirects.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The dashboard follows a structured layout with a **Header**, **Sidebar**, and **Main Content Area**, ensuring a clear and user-friendly experience.
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🎯 Main Goals
+
+- Centralized store management
+- Clean and user-friendly dashboard interface
+- Gaming API integration
+- Practical implementation of React concepts
+
+---
+
+## 🛠️ Technologies Used
+
+- **React**
+- **Functional Components**
+- **React Router** (for navigation and routing)
+- **React Hooks**:
+  - `useState`
+  - `useEffect`
+- **Local Storage** (for product data and login status)
+- **Public Gaming API**
+
+---
+
+## 🔐 Authentication
+
+The project includes a **Login Page** with:
+- Email and password fields
+- Input validation
+- Error messages displayed when invalid input is detected
+
+---
+
+## 📊 Dashboard Features
+
+The dashboard displays key store statistics, including:
+- Total sales statistics
+- Number of products
+- Pending and completed orders
+- Finished products
+- Order statuses
+- Product statuses
+
+---
+
+## 📦 Products Management
+
+- Products displayed in an organized table
+- Includes product details and images
+- Ability to:
+  - Add new products
+  - Edit existing products
+  - Delete products
+- All changes are reflected instantly in dashboard statistics
+
+---
+
+## 🧾 Orders Management
+
+- Displays customer order information:
+  - Customer name
+  - Email address
+  - Order total
+  - Order status
+- Ability to edit order details
+- Dedicated column for viewing order invoices
+
+---
+
+## 👥 Customers Management
+
+- Customer data displayed in a clean, organized table
+- Enables easy tracking and management of customer information
+
+---
+
+## 🎮 Gaming API Integration
+
+- Dedicated page to test public gaming API integration
+- Features include:
+  - Search for games
+  - Fetch and display game data from the API
+  - Button to redirect users to the official game website
+
+---
+
+## 💾 Data Handling
+
+- Product data and login status are stored using **Local Storage**
+- Any updates are immediately reflected across the dashboard
+- Ensures smooth state management without external databases
+
+---
+
+## 📌 Project Purpose
+
+GameX Tech focuses on the **practical application of React** by implementing:
+- Component-based architecture
+- State and props management
+- API integration
+- Admin dashboard UI patterns
+
+This project fulfills all the requirements of a modern **React Admin Dashboard** with a gaming-oriented twist.
+
+---
+
+## 👩‍💻 Author
+
+**Arwa Alzain**
+
+- 📧 Email: [arwaahalzain@gmail.com](mailto:arwaahalzain@gmail.com)
+- 💼 LinkedIn: [linkedin.com/in/arwa-alzain](https://www.linkedin.com/in/arwa-alzain/)
+- 🐙 GitHub: [github.com/Arwa-alzain](https://github.com/Arwa-alzain)
+
+---
+
+✨ *Feel free to fork the project, explore the code, and experiment with new features.*
