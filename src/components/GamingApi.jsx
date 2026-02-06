@@ -8,7 +8,7 @@ function GamingApi() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/games")
+    fetch("https://www.freetogame.com/api/games")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch games");
