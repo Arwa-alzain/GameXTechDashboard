@@ -8,7 +8,7 @@ function GamingApi() {
 
   useEffect(() => {
     setLoading(true);
-    fetch("/api/games")
+    fetch("https://www.freetogame.com/api/games")
       .then(async (response) => {
         const text = await response.text(); // نقرأ الرد كـ text أولاً
         try {
