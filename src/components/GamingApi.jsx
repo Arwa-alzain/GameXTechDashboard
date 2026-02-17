@@ -7,28 +7,27 @@ function GamingApi() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    setLoading(true);
-    fetch("/api/games")
-      .then(async (response) => {
-        const text = await response.text(); // نقرأ الرد كـ text أولاً
-        try {
-          const data = JSON.parse(text); // نحاول تحويله لـ JSON
-          return data;
-        } catch (e) {
-          console.error("Invalid JSON received:", text);
-          throw new Error("Invalid JSON received from API");
+    const fetchGames = async () => {
+      try {
+        setLoading(true);
+  
+        const response = await fetch("/api/games"); // ✅ proxy endpoint
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
         }
-      })
-      .then((data) => {
+  
+        const data = await response.json();
         setAllGames(data);
         setFilteredGames(data);
-      })
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false));
+      } catch (error) {
+        console.error("Failed to fetch games:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+  
+    fetchGames();
   }, []);
-  
-  
-  
 
   
 
