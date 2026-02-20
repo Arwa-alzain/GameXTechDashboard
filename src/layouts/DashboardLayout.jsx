@@ -8,13 +8,18 @@ import { productData } from "../data/products";
 import { ordersData } from "../data/orders";
 import { customersData } from "../data/customers";
 
-function DashboardLayout({setIsLoggedIn}) {
-
+function DashboardLayout({ setIsLoggedIn }) {
   const [showSidebar, setShowSidebar] = useState(true);
   const [activePage, setActivePage] = useState("dashboard");
   const [customers, setCustomers] = useState(customersData);
 
-  const toggleSidebar = () => { setShowSidebar(!showSidebar); };
+  const toggleSidebar = () => {
+    setShowSidebar(!showSidebar);
+  };
+
+  const closeSidebar = () => {
+    setShowSidebar(false);
+  };
 
   const [products, setProducts] = useState(() => {
     const stored = localStorage.getItem("products");
@@ -28,23 +33,23 @@ function DashboardLayout({setIsLoggedIn}) {
   const [orders, setOrders] = useState(() => {
     const stored = localStorage.getItem("orders");
     return stored ? JSON.parse(stored) : ordersData;
-  })
+  });
 
   useEffect(() => {
     localStorage.setItem("orders", JSON.stringify(orders));
   }, [orders]);
- 
-const navigate = useNavigate();
+
+  const navigate = useNavigate();
 
   const handleLogOut = () => {
     // Clear localStorage to reset to original data
     localStorage.removeItem("products");
     localStorage.removeItem("orders");
-    
+
     // Reset products and orders to original data
     setProducts(productData);
     setOrders(ordersData);
-    
+
     // Logout and redirect to login page
     setIsLoggedIn(false);
     navigate("/login");
@@ -52,16 +57,25 @@ const navigate = useNavigate();
 
   return (
     <div className="dashboard-page">
+      {/* Backdrop for mobile - click to close sidebar */}
+      {showSidebar && (
+        <div className="sidebar-backdrop" onClick={closeSidebar}></div>
+      )}
+
       <div className={`sidebar-wrapper ${showSidebar ? "" : "closed"}`}>
-        {showSidebar &&(
-          <Sidebar activePage={activePage} onPageChange={setActivePage} onLogout={handleLogOut}/>
+        {showSidebar && (
+          <Sidebar
+            activePage={activePage}
+            onPageChange={setActivePage}
+            onLogout={handleLogOut}
+            onClose={closeSidebar}
+          />
         )}
-        
       </div>
 
       <div className={`main-area ${showSidebar ? "" : "sidebar-collapsed"}`}>
         <Header onToggleSideBar={toggleSidebar} />
-        
+
         <MainContent
           activePage={activePage}
           products={products}
@@ -76,4 +90,3 @@ const navigate = useNavigate();
 }
 
 export default DashboardLayout;
-
